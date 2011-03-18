@@ -1,0 +1,38 @@
+<%= render 'shared/hotel_tabs' %>
+
+<div id="content">	
+	
+	<%= render 'hotels/search' %>
+
+	<div id="information">
+	
+		<%= render 'hotels/bar' %>
+	
+		<div id="text">
+		
+			<div id="theformshow">
+				<h2>Datos Fiscales de <%= @fiscal.hotel.name %></h2>
+				<p><strong>Estado:</strong> <%= @fiscal.hotel.city.state.name %></p>
+				<p><strong>Ciudad:</strong> <%= @fiscal.hotel.city.name %></p>
+				<p><strong>Razón Social:</strong> <%= @fiscal.business_name %></p>
+				<p><strong>Razón Comercial:</strong> <%= @fiscal.commercial_name %></p>
+				<p><strong>RFC:</strong> <%= @fiscal.rfc %></p>
+				<p><strong>Dirección:</strong> <%= @fiscal.direction %></p>
+				<p><strong>Nombre de Contacto:</strong> <%= @fiscal.contact_name %></p>
+				<p><strong>Puesto de Contacto:</strong> <%= @fiscal.job_position %></p>
+				<p><strong>Teléfono:</strong> <%= @fiscal.phone %></p>
+				<p><strong>Email:</strong> <%= @fiscal.email %></p>		
+				<p><strong>Información Bancaria:</strong> <%= h(@fiscal.bank_info).gsub(/\n/, '<br />') %></p>
+				<p>
+					<%= link_to image_tag('back_button.gif', :alt => 'Regresar a Datos Fiscales'), hotel_fiscals_path %> 
+					<%= link_to image_tag('edit_button.gif', :alt => 'Editar Dato Fiscal'), edit_hotel_fiscal_path(@hotel, @fiscal) %> 
+					<%= link_to image_tag('delete_button.gif', :alt => 'Eliminar Dato Fiscal'),hotel_fiscal_path(@hotel, @fiscal), :confirm => "¿Estás Seguro?", :method => :delete %>
+				</p>
+				
+			</div><!--end theformshow-->
+		 
+		</div><!--end text-->
+	
+	</div><!--end information-->
+	
+</div><!--end content-->

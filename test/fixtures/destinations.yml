@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  city_id: 1
+  description: MyText
+  attraction: MyText
+  gastronomy: MyText
+  recommendations: MyText
+
+two:
+  city_id: 1
+  description: MyText
+  attraction: MyText
+  gastronomy: MyText
+  recommendations: MyText

@@ -1,0 +1,12 @@
+<%= form_for @state do |f| %>
+<p>
+	<%= f.label 'Estado' %>
+	<%= f.text_field :name, :class => :input300 %>
+</p>
+<p>
+	<%= f.submit 'Agregar', :class => :submit %>
+</p>
+<p class="add_image">
+	<%= link_to 'Regresar a estados', states_path %>
+</p>
+<% end %>

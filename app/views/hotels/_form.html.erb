@@ -1,0 +1,63 @@
+<%= form_for @hotel, :html => { :multipart => true } do |f| %>
+	<%= render "shared/error_messages", :target => @hotel %> 
+	<p>
+		<%= f.label 'Ciudad' %>
+		<%= f.collection_select :city_id, City.all, :id, :name %>
+	</p>
+	<p>
+		<%= f.label 'Activo' %>
+		<%= f.check_box :status, :class => :checkbox %>
+	</p>
+	<p>
+		<%= f.label 'Nombre' %>
+		<%= f.text_field :name, :class => :input400 %>
+	</p>
+	<p>
+		<label>Descripción <span>Brevemente describe el hotel</span></label>
+		<%= f.text_area :description, :class => :mceEditor %>
+	</p>
+	<p>
+		<%= f.label 'Dirección' %>
+		<%= f.text_field :direction, :class => :input500 %>
+	</p>
+	<p>
+		<label>Latitud / Longitud <span>Separados por coma</span></label>
+		<%= f.text_field :gmap, :class => :input300 %>
+	</p>
+	<p>
+		<%= f.label 'Ubicación' %>
+		<%= f.text_field :location, :class => :input500 %>
+	</p>
+	<p>
+		<label>Servicios <span>Escribe los servicios que ofrece el hotel</span></label>
+		<%= f.text_area :services, :class => :mceEditor %>
+	</p>
+	<p>
+		<%= f.label 'Categoría' %>
+		<%= f.collection_select :category, Hotel::CATEGORY, :to_s, :humanize %>
+	</p>
+	<p>
+		<%= f.label 'Orden' %>
+		<%= f.text_field :order, :class => :input30 %>
+	</p>
+	<p>
+		<%= f.label 'Rango de edad de infante' %>
+		<%= f.text_field :infant_start_age, :class => :input30 %> <%= f.text_field :infant_end_age, :class => :input30 %>
+	</p>
+	<p>
+		<%= f.label 'Rango de edad de menor' %>
+		<%= f.text_field :minor_start_age, :class => :input30 %> <%= f.text_field :minor_end_age, :class => :input30 %>
+	</p>
+	<p>
+		<%= f.label 'Rango de edad de junior' %>
+		<%= f.text_field :junior_start_age, :class => :input30 %> <%= f.text_field :junior_end_age, :class => :input30 %>
+	</p>
+	<% f.fields_for :hotel_images do |builder| %>  
+		<%= render 'hotel_image_fields', :f => builder %>
+	<% end %>  
+	<p class="add_image"><%= link_to_add_fields "Agregar Imagen", f, :hotel_images %></p>
+	
+	<p>
+		<%= image_submit_tag 'save_button.gif', :class => :submitimg %>
+	</p>
+<% end %>

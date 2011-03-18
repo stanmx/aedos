@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  room_id: 1
+  date: 2010-09-02
+  package_price: 9.99
+  one_person_price: 9.99
+  rooms_number: 1
+  status: false
+
+two:
+  room_id: 1
+  date: 2010-09-02
+  package_price: 9.99
+  one_person_price: 9.99
+  rooms_number: 1
+  status: false

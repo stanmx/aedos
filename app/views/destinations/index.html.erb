@@ -1,0 +1,37 @@
+<%= render 'shared/destination_tabs' %>
+
+<div id="content">	
+	
+	<%= render 'search' %>
+	
+	<div id="hotel-results">
+	
+		<div class="thetable">
+			<table cellpadding="0" cellspacing="0" border="0">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Destino</th>
+						<th colspan="2">Opciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @destinations.each do |destination| %>
+					<tr class="<%= cycle("first", "second") %>">
+						<td><%= destination.id  %></td>
+						<td><%= link_to destination.city.name, destination_path(destination) %></td>
+						<td><%= link_to image_tag('edit-icon.png', :alt => 'Editar'), edit_destination_path(destination) %></td>
+						<td><%= link_to image_tag('delete-icon.png', :alt => 'Eliminar'), destination_path(destination), :confirm => "¿Estás seguro?", :method => :delete %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div><!--end thetable-->
+	
+		<div class="thetablepagination">
+			<%= will_paginate(@destinations) %> 	
+		</div><!--end thetablepagination-->
+	
+	</div><!--end hotel-resuelts-->
+
+</div><!--end content-->

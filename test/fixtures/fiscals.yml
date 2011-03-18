@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  hotel_id: 1
+  business_name: MyString
+  commercial_name: MyString
+  rfc: MyString
+  direction: MyString
+  contact_name: MyString
+  job_position: MyString
+  phone: MyString
+  email: MyString
+  bank_info: MyText
+
+two:
+  hotel_id: 1
+  business_name: MyString
+  commercial_name: MyString
+  rfc: MyString
+  direction: MyString
+  contact_name: MyString
+  job_position: MyString
+  phone: MyString
+  email: MyString
+  bank_info: MyText

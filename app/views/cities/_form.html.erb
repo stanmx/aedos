@@ -1,0 +1,13 @@
+<%= form_for @city do |f| %>
+<p>
+	<%= f.label 'Ciudad' %>
+	<%= f.collection_select :state_id, State.all, :id, :name %>
+	<%= f.text_field :name, :class => :input300 %>
+</p>	
+<p>
+	<%= f.submit 'Agregar', :class => :submit %>
+</p>
+<p class ="add_image">
+	<%= link_to 'Regresar a ciudades', cities_path %>
+</p>
+<% end %>

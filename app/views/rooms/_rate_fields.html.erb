@@ -1,0 +1,77 @@
+<div class="fields"> 
+	<p class="gray">  
+    	<%= f.label 'Tarifa sencilla' %> 
+    	<%= f.text_field :simple_rate, :class => :input100 %>  
+  	</p>  
+  	<p class="gray">  
+    	<%= f.label 'Tarifa doble' %> 
+    	<%= f.text_field :double_rate, :class => :input100 %>  
+  	</p>
+  	<p class="gray">  
+    	<%= f.label 'Tarifa triple' %>  
+    	<%= f.text_field :triple_rate, :class => :input100 %>  
+  	</p>
+  	<p class="gray">  
+    	<%= f.label 'Tarifa quadruple' %>  
+    	<%= f.text_field :quad_rate, :class => :input100 %>  
+  	</p>
+  	<p class="gray">  
+    	<%= f.label 'Tarifa quintuple' %> 
+    	<%= f.text_field :quintuple_rate, :class => :input100 %>  
+  	</p>
+  	<p class="gray">  
+    	<%= f.label 'Tarifa sextuple' %>  
+    	<%= f.text_field :sextuple_rate, :class => :input100 %>  
+  	</p>
+  	<p class="gray">  
+    	<%= f.label 'Tarifa de infante' %>  
+    	<%= f.text_field :infant_rate, :class => :input100 %>  
+  	</p>
+  	<p class="gray">  
+    	<%= f.label 'Tarifa de menor' %>  
+    	<%= f.text_field :minor_rate, :class => :input100 %>  
+  	</p>
+  	<p class="gray">  
+    	<%= f.label 'Tarifa junior' %> 
+    	<%= f.text_field :junior_rate, :class => :input100 %>  
+  	</p>
+  	<p class="gray">  
+    	<%= f.label 'Desayuno de menor' %>
+    	<%= f.text_field :minor_breakfast, :class => :input100 %>  
+  	</p>
+  	<p class="gray">  
+    	<%= f.label 'Desayuno de adulto' %>  
+    	<%= f.text_field :adult_breakfast, :class => :input100 %>  
+  	</p>
+  	<p class="gray">  
+    	<%= f.label 'Comision de AETO' %> 
+    	<%= f.text_field :aeto_comission, :class => :input100 %>  
+  	</p>
+  	<p class="gray">  
+    	<%= f.label 'IVA' %> 
+    	<%= f.text_field :tax, :class => :input100 %>  
+  	</p>
+  	<p class="gray">  
+    	<%= f.label 'ISH' %> 
+    	<%= f.text_field :ish, :class => :input100 %>  
+  	</p>
+  	<p class="gray">
+    	<%= f.label 'Inicio de disponibilidad' %>  
+    	<%= f.datetime_select :start_date %>  
+  	</p>
+  	<p class="gray">
+    	<%= f.label 'Termino de disponibilidad' %>  
+    	<%= f.datetime_select :end_date %>  
+  	</p>
+	<p class="gray">
+    	<%= f.label 'Fecha de caducidad de tarifas' %>  
+    	<%= f.datetime_select :rates_expired %>  
+  	</p>
+	<p class="gray">
+    	<%= f.label 'Minimo de dias' %>  
+    	<%= f.text_field :min_days, :class => :input100 %>  
+  	</p>
+	<p class="gray red_link">
+		<%= link_to_remove_fields 'Eliminar tarifa de disponibilidad', f %>
+	</p>
+</div>

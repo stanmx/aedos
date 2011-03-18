@@ -1,0 +1,20 @@
+<div id="information">
+	
+	<div id="bar"></div><!--end bar-->
+	
+	<div id="text">
+		
+		<div id="theformshow">
+			<h2>Ciudades</h2>
+			<p class="add_image"><%= link_to 'Agregar Nueva Ciudad', new_city_path %></p>
+			<ol>
+			<% @cities.each do |city| %>
+				<li><%= city.state.name %> / <%= city.name %></li>
+			<% end %>
+			</ol>
+
+		</div><!--end theform-->
+
+	</div><!--end text-->
+
+</div><!--end information-->

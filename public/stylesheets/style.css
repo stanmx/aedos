@@ -1,0 +1,700 @@
+body {
+	margin: 0;
+	font-family: Calibri, 'Lucida Grande', Arial, Verdana, sans-serif;
+	background: #666 url(../images/body-bg.gif) top center repeat-y;
+}
+
+	/*<page />*/
+	
+	#page {
+		width: 980px;
+		margin: 10px auto;
+		background-color: #eee;
+	}
+	
+		/*<header />*/
+	
+		#header {
+			width: 980px;
+			height: 150px;
+			background: #5db485 url(../images/header-bg.gif) 0 0 repeat-x;
+			position: relative;
+		}
+		
+			#title {
+				width: 980px;
+				height: 90px;
+			}
+			
+				#title h1 {
+					margin: 0;
+					padding: 20px 20px 0 20px;
+					font-size: 40pt;
+					font-weight: normal;
+					color: #f7f7f7;
+				}
+				
+			#menu {
+				width: 980px;
+				height: 40px;
+				background-color: #222;
+			}
+			
+				#menu ul {
+					margin: 0;
+					padding: 0 0 0 10px;
+				}
+					
+					#menu ul li {
+						float: left;
+						display: inline;
+						margin: 0;
+						padding: 10px 10px 0 10px;
+						list-style: none;
+						font-size: 13pt;
+						font-weight: bold;
+						letter-spacing: 1pt;
+						text-transform: uppercase;
+						color: #444;
+					}
+					
+						#menu ul li a {
+							height: 40px;
+							text-decoration: none;
+							color: #fff;
+						}
+						
+							#menu ul li a:hover {
+								text-decoration: none;
+								color: #86c340;
+							}
+			
+			#logout {
+				position: absolute;
+				top: 100px;
+				right: 20px;
+			}
+			
+				#logout p {
+					margin: 0;
+					font-size: 11pt;
+					font-weight: bold;
+					text-align: right;
+					color: #eee;
+				}
+				
+					#logout p a {
+						text-decoration: none;
+						color: #86c340;
+					}
+					
+						#logout p a:hover {
+							text-decoration: none;
+							color: #ffffcc;
+						}
+			
+			#messages {
+				position: absolute;
+				top: 20px;
+				right: 20px;
+			}
+			
+				#messages p {
+					margin: 0;
+					font-size: 11pt;
+					color: #fff;
+				}
+			
+						
+		/*<tabs />*/
+		
+		#tabs {
+			width: 980px;
+			height: 40px;
+			background: #5db485 url(../images/tabs-bg.gif) 0 0 repeat-x;
+		}
+				
+			#tabs ul {
+				margin: 0;
+				padding: 0;
+			}
+					
+				#tabs ul li {
+					float: left;
+					display: inline;
+					margin: 0;
+					padding: 0 1px 0 0;
+					list-style: none;
+					font-size: 11pt;
+					font-weight: normal;
+					letter-spacing: 1pt;
+					text-transform: uppercase;
+					color: #666;
+				}
+										
+					#tabs ul li a {
+						height: 30px;
+						display: block;
+						padding: 10px 10px 0 10px;
+						text-decoration: none;
+						color: #999;
+					}
+						
+						#tabs ul li a.selected {
+							background-color: #fff;
+							background-image: none;
+							color: #86c340;
+						}
+						
+		/*<content />*/
+		
+		#content {
+			width: 980px;
+			background-color: #fff;
+		}
+		
+			/*<hotel-header />*/
+		
+			#hotel-header {
+				width: 980px;
+				height: 100px;
+				border-bottom: 1px solid #ccc;
+				background: #eee url(../images/hotel-header-bg.gif) 0 0 repeat-x;
+			}
+			
+				.quicksearch {
+					float: left;
+					display: inline;
+					width: 300px;
+					height: 40px;
+					margin: 35px 0 0 20px;
+				}
+				
+					.quicksearch form {
+						margin: 0;
+						position: absolute;
+						border: 1px solid #ccc;
+					}
+
+						.search-form div {
+							position: relative;
+						}
+	
+							.search_text {
+								width: 300px;
+								padding: 5px;
+								background-color: #fff;
+								font-family: Calibri, 'Lucida Grande', Arial, Verdana, sans-serif;
+								font-size: 11pt;
+								border: none;
+								color: #333;
+							}
+							
+							#query {
+								width: 300px;
+								padding: 5px;
+								background-color: #fff;
+								font-family: Calibri, 'Lucida Grande', Arial, Verdana, sans-serif;
+								font-size: 11pt;
+								border: none;
+								color: #333;
+							}
+							
+							.search_submit {
+								background: #fff url("../images/search-icon.png") 0 0 no-repeat;
+								border: none;
+								width: 16px;
+								height: 16px;
+								cursor: pointer;
+								position: absolute;
+								right: 0;
+								top: 6px;
+								margin-right: 5px;
+							}
+						
+				
+				.thebutton {
+					float: right;
+					display: inline;
+					width: 195px;
+					height: 30px;
+					margin: 35px 20px 0 0;
+					text-align: right;
+				}
+				
+					.thebutton p {
+						margin: 0;
+					}
+				
+					.thebutton p a img {
+						border: none;
+					}
+					
+			/*<hotel-results />*/
+				
+			#hotel-results {
+				width: 980px;
+			}
+			
+				.thetable {
+					margin: 0;
+				}
+				
+					.thetable table {
+						margin: 0;
+						width: 100%;
+					}
+					
+					
+						.thetable table thead tr th {
+							margin: 0;
+							padding: 5px 10px;
+							border-bottom: 1px solid #ccc;
+							background-color: #ccff99;
+							font-size: 11pt;
+							font-weight: normal;
+							text-align: left;
+							text-transform: uppercase;
+							letter-spacing: 1pt;
+							color: #333;
+						}
+						
+							.two {
+								border-top: 1px solid #ccc;
+							}
+						
+						.thetable table tbody tr td {
+							margin: 0;
+							padding: 5px 10px;
+							font-size: 11pt;
+							font-weight: normal;
+							color: #333;
+						}
+						
+							.thetable table tbody tr td a {
+								text-decoration: none;
+								color: #5db485;
+							}
+							
+							.thetable table tbody tr td a:hover {
+								color: #86c340;
+							}
+						
+								.thetable table tbody tr td a img {
+									border: none;
+								}
+						
+							.second {
+								background-color: #eee;
+							}
+							
+							
+							
+				.thetablepagination {
+					width: 980px;
+					height: 40px;
+					border-top: 1px solid #ccc;
+					background: #eee url(../images/thetablepagination-bg.gif) 0 0 repeat-x;
+				}
+				
+					.pagination {
+						width: 960px;
+						height: 40px;
+						padding: 11px 0 0 0;
+						font-size: 11pt;
+						font-weight: normal;
+						text-align: center;
+						color: #999;
+					}
+					
+						.previous_page, .next_page {
+							padding: 0 5px;
+							
+						}
+						
+						.pagination em {
+							font-style: normal;
+							padding: 0 5px;
+						}
+						
+							.pagination a {
+								padding: 0 5px;
+								text-decoration: none;
+								color: #5db485;
+							}
+							
+			/*<information />*/	
+			
+			#information {
+				width: 980px;
+				overflow: hidden;
+				background: transparent url(../images/information-bg.gif) 0 0 repeat-y;
+			}
+			
+				#bar {
+					float: left;
+					width: 201px;
+					min-height: 300px;
+					display: inline;		
+				}
+				
+					#bar ul {
+						margin: 70px 10px 0;
+						padding: 0;
+					}
+					
+						#bar ul li {
+							margin: 0;
+							padding: 0 0 10px 0;
+							font-size: 11pt;
+							text-align: right;
+							list-style: none;
+							color: #666;
+						}
+				
+							#bar ul li a {
+								text-decoration: none;
+								color: #5db485;
+							}
+						
+				#text {
+					float: right;
+					width: 779px;
+					display: inline;
+				}
+				
+					#text h2 {
+						margin: 0;
+						padding: 20px 0 0 20px;
+						height: 40px;
+						font-size: 16pt;
+						font-weight: bold;
+						text-transform: uppercase;
+						letter-spacing: 1pt;
+						color: #5db485;
+					}
+					
+					#theform form {
+						margin: 0;
+						padding: 0;
+					}
+					
+						#theform form p {
+							margin: 0;
+							border-top: 1px solid #ccc;
+						}
+						
+							#theform form p a {
+								display: block;
+								margin: 10px 20px;
+								text-decoration: none;
+								color: #5db485;
+							}
+							
+								#theform form p a:hover {
+									text-decoration: underline;
+								}
+						
+							#theform label {
+								display: block;
+								margin: 20px 0 5px 20px;
+								font-size: 11pt;
+								font-weight: bold;
+								color: #333;
+							}
+							
+								#theform label span {
+									margin-left: 10px;
+									font-weight: normal;
+									color: #ccc;
+								}
+								
+								#theform span.spanmessage {
+									margin-left: 10px;
+									font-weight: normal;
+									color: #ccc;
+								}
+							
+							#theform select {
+								margin: 0 0 20px 20px;
+								padding: 3px;
+								font-family: Calibri, 'Lucida Grande', Arial, Verdana, sans-serif;
+								font-size: 11pt;
+								border: 1px solid #ccc;
+								color: #333;
+							}
+							
+								#theform select option {
+									font-family: Calibri, 'Lucida Grande', Arial, Verdana, sans-serif;
+								}
+							
+							#theform input.checkbox {
+								margin: 0 0 20px 20px;
+							}
+							
+							#theform input.input500 {
+								margin: 0 0 20px 20px;
+								padding: 5px;
+								width: 500px;
+								border: 1px solid #ccc;
+								font-family: Calibri, 'Lucida Grande', Arial, Verdana, sans-serif;
+								font-size: 11pt;
+								color: #333;
+							}
+							
+							#theform input.input400 {
+								margin: 0 0 20px 20px;
+								padding: 5px;
+								width: 400px;
+								border: 1px solid #ccc;
+								font-family: Calibri, 'Lucida Grande', Arial, Verdana, sans-serif;
+								font-size: 11pt;
+								color: #333;
+							}
+							
+							#theform input.input300 {
+								margin: 0 0 20px 20px;
+								padding: 5px;
+								width: 300px;
+								border: 1px solid #ccc;
+								font-family: Calibri, 'Lucida Grande', Arial, Verdana, sans-serif;
+								font-size: 11pt;
+								color: #333;
+							}
+							
+							#theform input.input200 {
+								margin: 0 0 20px 20px;
+								padding: 5px;
+								width: 200px;
+								border: 1px solid #ccc;
+								font-family: Calibri, 'Lucida Grande', Arial, Verdana, sans-serif;
+								font-size: 11pt;
+								color: #333;
+							}
+							
+							#theform input.input100 {
+								margin: 0 0 20px 20px;
+								padding: 5px;
+								width: 100px;
+								border: 1px solid #ccc;
+								font-family: Calibri, 'Lucida Grande', Arial, Verdana, sans-serif;
+								font-size: 11pt;
+								color: #333;
+							}
+							
+							#theform input.input30 {
+								margin: 0 0 20px 20px;
+								padding: 5px;
+								width: 30px;
+								border: 1px solid #ccc;
+								font-family: Calibri, 'Lucida Grande', Arial, Verdana, sans-serif;
+								font-size: 11pt;
+								text-align: center;
+								color: #333;
+							}
+							
+							#theform input.inputattach {
+								margin: 0 0 20px 20px;
+								padding: 5px;
+								width: 300px;
+								border: 1px solid #ccc;
+								font-family: Calibri, 'Lucida Grande', Arial, Verdana, sans-serif;
+								font-size: 11pt;
+								color: #333;
+							}
+							
+							#theform input.submitattach {
+								vertical-align: middle;
+								font-family: Calibri, 'Lucida Grande', Arial, Verdana, sans-serif;
+								font-size: 11pt;
+								text-transform: uppercase;
+								letter-spacing: 1pt;
+							}
+							
+							#theform textarea {
+								margin: 0 0 20px 20px;
+								padding: 5px;
+								width: 728px;
+								height: 150px;
+								border: 1px solid #ccc;
+								font-family: Calibri, 'Lucida Grande', Arial, Verdana, sans-serif;
+								font-size: 11pt;
+								color: #333;
+							}
+							
+								.mceEditor {
+									display: block;
+									margin: 0 0 20px 20px;
+								}
+							
+							#theform p.fields {
+								padding: 20px 0 20px 20px;
+								background-color: #f7f7f7;
+							}
+							
+							#theform p.gray {
+								background-color: #f7f7f7;
+							}
+							
+								#theform p.fields a {
+									float: right;
+									margin-top: 2px;
+									font-size: 11pt;
+								}
+								
+								#theform .red_link a {
+									width: 230px;
+									color: red;
+								}
+								
+							#theform p.add_image {
+								font-size: 11pt;
+							}
+							
+							#theform input.submit {
+								margin: 20px;
+								font-family: Calibri, 'Lucida Grande', Arial, Verdana, sans-serif;
+								font-size: 11pt;
+								text-transform: uppercase;
+								letter-spacing: 1pt;
+							}
+							
+							#theform input.submitimg {
+								margin: 20px;
+							}
+							
+							#theformshow p {
+								margin: 0;
+								padding: 20px;
+								border-top: 1px solid #ccc;
+								font-size: 11pt;
+								line-height: 15pt;
+								color: #333;
+							}
+							
+							#theformshow img {
+								border: none;
+							}
+							
+							#theformshow p a {
+								text-decoration: none;
+								color: #5db485;
+							}
+							
+								#theformshow p a:hover {
+									text-decoration: underline;
+								}
+							
+							#theformshow ul, #theformshow ol {
+								margin: 0;
+								padding: 20px;
+								border-top: 1px solid #ccc;
+							}
+							
+								#theformshow li {
+									margin-left: 20px;
+									font-size: 11pt;
+									line-height: 15pt;
+									color: #333;
+								}
+		
+						#agregar {
+							border-top: 1px solid #ccc;
+						}
+						
+							#agregar p {
+								margin: 0;
+								padding: 20px;
+							}
+													
+								#agregar p a img {
+									border: 0;
+								}
+		
+		
+		/*<results />*/	
+		
+		#results {
+			border-top: 1px solid #ccc;
+		}
+		
+			.roomresult {
+				border-top: 1px solid #eee;
+			}
+		
+				.roomresult h3 {
+					margin: 0;
+					padding: 20px 0 0 20px;
+					font-size: 14pt;
+					font-weight: bold;
+					letter-spacing: 1pt;
+					color: #333;
+				}
+				
+				.roomresult h5 {
+					margin: 0;
+					padding: 0 0 0 20px;
+					font-size: 12pt;
+					font-weight: bold;
+					color: #999;
+				}
+				
+				.roomresult p {
+					margin: 0;
+					padding: 0 20px 20px 20px;
+					font-size: 11pt;
+					line-height: 15pt;
+					color: #333;
+				}
+				
+				.roomresult ul {
+					margin: 0 20px 20px 40px;
+					padding: 0;
+				}
+				
+				.roomresult ul li {
+					margin: 0;
+					padding: 0 0 5px 0;
+					font-size: 11pt;
+					line-height: 15pt;
+					list-style: square;
+					color: #333;
+				}
+		
+					
+		/*<footer />*/	
+		
+		#footer {
+			width: 980px;
+			height: 80px;
+			background: #222 url(../images/footer-bg.gif) 0 0 no-repeat;
+		}
+		
+		/*<errorExplanation />*/
+		
+		#errorExplanation {
+			margin: 0;
+			border-top: 1px solid #ccc;
+			background-color: #ffffcc;
+		}
+		
+			#errorExplanation h3 {
+				margin: 0;
+				padding: 20px 20px 10px 20px;
+				color: #333;
+			}
+			
+			#errorExplanation ul {
+				margin: 0 0 0 40px;
+				padding: 0 0 20px 0;
+			}
+			
+				#errorExplanation ul li {
+					font-size: 11pt;
+					line-height: 15pt;
+					color: #333;
+					
+				}
+
+					
+			

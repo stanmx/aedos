@@ -1,0 +1,50 @@
+<%= render 'shared/hotel_tabs' %>
+
+<div id="content">	
+	
+	<%= render 'hotels/search' %>
+
+	<div id="information">
+	
+		<%= render 'hotels/bar' %>
+	
+		<div id="text">
+			<h2>Tipos de habitaciones en <%= @hotel.name %></h2>
+		
+			<% if @hotel.rooms.empty? %>
+			<% else %>
+			<div class="thetable two">
+				<table cellpadding="0" cellspacing="0" border="0">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Nombre</th>
+							<th>Descripción</th>
+							<th colspan="2">Opciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @hotel.rooms.each do |room| %>
+						<tr class="<%= cycle("first", "second") %>">
+							<td><%= room.id  %></td>
+							<td><%= link_to room.name, hotel_room_path(@hotel, room) %></td>
+							<td><%= truncate(room.description, :length => 70) %></td>
+							<td><%= link_to image_tag('edit-icon.png', :alt => 'Editar'), edit_hotel_room_path(@hotel, room) %></td>
+							<td><%= link_to image_tag('delete-icon.png', :alt => 'Eliminar'), hotel_room_path(@hotel, room), :confirm => "¿Estás seguro?", :method => :delete %></td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div><!--end thetable-->
+			<% end%>
+			<div id="agregar">
+				<p>
+					<%= link_to image_tag('agregar_nueva_habitacion_button.gif', :alt => 'Agregar Nueva Habitación'), new_hotel_room_path(@hotel, @room) %>
+				</p>
+			</div><!--end newactions-->
+		 
+		</div><!--end text-->
+	
+	</div><!--end information-->
+
+</div><!--end content-->

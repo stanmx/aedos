@@ -1,0 +1,30 @@
+<%= form_for @destination, :html => { :multipart => true } do |f| %>
+	<%= render "shared/error_messages", :target => @destination %> 
+	<p>
+		<%= f.label 'Ciudad' %>
+		<%= f.collection_select :city_id, City.all, :id, :name %>
+	</p>
+	<p>
+		<label>Descripción</label>
+		<%= f.text_area :description, :class => :mceEditor %>
+	</p>
+	<p>
+		<label>Atracciones Turísticas</label>
+		<%= f.text_area :attractions, :class => :mceEditor %>
+	</p>
+	<p>
+		<label>Gastronomía</label>
+		<%= f.text_area :gastronomy, :class => :mceEditor %>
+	</p>
+	<p>
+		<label>Recomendaciones</label>
+		<%= f.text_area :recommendations, :class => :mceEditor %>
+	</p>
+	<% f.fields_for :destination_images do |builder| %>  
+		<%= render 'destination_image_fields', :f => builder %>
+	<% end %>  
+	<p class="add_image"><%= link_to_add_fields "Agregar Imagen", f, :destination_images %></p>
+	<p>
+		<%= image_submit_tag 'save_button.gif', :class => :submitimg %>
+	</p>
+<% end %>

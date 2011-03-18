@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  start_date: 2011-03-11 12:39:50
+  end_date: 2011-03-11 12:39:50
+  rooms_number: 1
+  adults_number: 1
+
+two:
+  start_date: 2011-03-11 12:39:50
+  end_date: 2011-03-11 12:39:50
+  rooms_number: 1
+  adults_number: 1

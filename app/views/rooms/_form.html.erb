@@ -1,0 +1,38 @@
+<%= form_for [:hotel, @room] do |f| %>
+	<%= render "shared/error_messages", :target => @room %> 
+	<p>
+		<%= f.label 'Nombre' %>
+		<%= f.text_field :name, :class => :input400 %>
+	</p>
+	<p>
+		<%= f.label 'Descripción' %>
+		<%= f.text_area :description, :class => :mceEditor %>
+	</p>
+	<p>
+		<%= f.label 'Habitaciones disponibles' %>
+		<%= f.text_field :rooms_number, :class => :input100 %>
+	</p>
+	<p>
+		<%= f.label 'Capacidad maxima de habitación' %>
+		<%= f.text_field :capacity, :class => :input100 %>
+	</p>
+	<p>
+		<%= f.label 'Capacidad maxima de adultos' %>
+		<%= f.text_field :adult_max_capacity, :class => :input100 %>
+	</p>
+	<p>
+		<%= f.label 'Capacidad maxima de menores' %>
+		<%= f.text_field :child_max_capacity, :class => :input100 %>
+	</p>
+	<p>
+		<%= f.label 'Capacidad maxima de juniors' %>
+		<%= f.text_field :junior_max_capacity, :class => :input100 %>
+	</p>
+	<% f.fields_for :rates do |builder| %>  
+		<%= render 'rate_fields', :f => builder %>
+	<% end %>
+	<p class="add_image"><%= link_to_add_fields 'Agregar nueva tarifa de disponibilidad', f, :rates %></p>
+	<p>
+		<%= image_submit_tag 'save_button.gif', :class => :submitimg %>
+	</p>
+<% end %>

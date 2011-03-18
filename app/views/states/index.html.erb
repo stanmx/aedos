@@ -1,0 +1,22 @@
+<div id="information">
+	
+	<div id="bar"></div><!--end bar-->
+	
+	<div id="text">
+		
+		<div id="theformshow">
+			<h2>Estados</h2>
+			<p class="add_image"><%= link_to 'Agregar nuevo estado', new_state_path %></p>
+			<ul>
+				<% @states.each do |state| %>
+  				<li>
+    				<%= state.name %>
+  				</li>
+			<% end %>
+			</ul>
+
+		</div><!--end theform-->
+
+	</div><!--end text-->
+
+</div><!--end information-->

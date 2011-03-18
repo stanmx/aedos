@@ -1,0 +1,20 @@
+<%= render 'shared/hotel_tabs' %>
+
+<div id="content">	
+	
+	<%= render 'search' %>
+
+	<div id="information">
+	
+		<%= render 'bar' %>
+	
+		<div id="text">
+		
+			<div id="theform">
+				<h2>Editar Hotel <%= @hotel.name %></h2>
+				<%= render 'form' %>
+			</div><!--end theform-->
+		 
+		</div><!--end text-->
+	</div><!--end information-->
+</div><!--end content-->

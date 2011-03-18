@@ -1,0 +1,52 @@
+<%= render 'shared/hotel_tabs' %>
+
+<div id="content">	
+	
+	<%= render 'hotels/search' %>
+
+<div id="information">
+	
+	<%= render 'hotels/bar' %>
+	
+		<div id="text">
+			<h2>Datos Fiscales de <%= @hotel.name %></h2>
+		
+			<% if @hotel.fiscals.empty? %>
+			<% else %>
+			<div class="thetable two">
+				<table cellpadding="0" cellspacing="0" border="0">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Razón Comercial</th>
+							<th>Contacto</th>
+							<th>Teléfono</th>
+							<th colspan="2">Opciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @hotel.fiscals.each do |fiscal| %>
+						<tr class="<%= cycle("first", "second") %>">
+							<td><%= fiscal.id  %></td>
+							<td><%= link_to fiscal.commercial_name, hotel_fiscal_path(@hotel, fiscal) %></td>
+							<td><%= fiscal.contact_name  %></td>
+							<td><%= fiscal.phone %></td>
+							<td><%= link_to image_tag('edit-icon.png', :alt => 'Editar'), edit_hotel_fiscal_path(@hotel, fiscal) %></td>
+							<td><%= link_to image_tag('delete-icon.png', :alt => 'Eliminar'), hotel_fiscal_path(@hotel, fiscal), :confirm => "¿Estás seguro?", :method => :delete %></td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div><!--end thetable-->
+			<% end%>
+			<div id="agregar">
+				<p>
+					<%= link_to image_tag('agregar_nuevo_dato_fiscal_button.gif', :alt => 'Agregar Nuevo Dato Fiscal'), new_hotel_fiscal_path(@hotel, @fiscal) %>
+					</p>
+			</div><!--end newactions-->
+		 
+		</div><!--end text-->
+	
+	</div><!--end information-->
+
+</div><!--end content-->

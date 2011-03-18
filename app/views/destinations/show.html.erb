@@ -1,0 +1,43 @@
+<%= render 'shared/destination_tabs' %>
+
+<div id="content">	
+	
+	<%= render 'search' %>
+
+	<div id="information">
+	
+		<div id="bar"></div><!--end bar-->
+	
+		<div id="text">
+		
+			<div id="theformshow">
+				<h2>Información General de <%= @destination.city.name %></h2>
+				<p><strong>Estado:</strong> <%= @destination.city.state.name %></p>
+				<p><strong>Ciudad:</strong> <%= @destination.city.name %></p>
+				<p><strong>Descripción:</strong> <%= @destination.description %></p>
+				<p><strong>Atracciones Turísticas:</strong> <%= @destination.attractions %></p>
+				<p><strong>Gastronomía:</strong> <%= @destination.gastronomy %></p>
+				<p><strong>Recomendaciones:</strong> <%= @destination.recommendations %></p>
+				<p class="hotel_images">
+				<% @destination.destination_images.each do |photo| %>
+			  		<% if photo.id == @destination.destination_images.first.id %>
+			    		<% image = image_tag(photo.photo.url(:small), :alt => @destination.city.name, :border => 0) %>
+			  		<% else %>
+			    		<% image = image_tag(photo.photo.url(:small), :alt => @destination.city.name, :border => 0, :class => 'small') %>
+			  		<% end %>
+			  		<%= link_to image, photo.photo.url(:big), :class => 'zoom' %>
+				<% end %>
+				</p>
+				<p>
+					<%= link_to image_tag('back_button.gif', :alt => 'Regresar a Destinos'), destinations_path %> 
+					<%= link_to image_tag('edit_button.gif', :alt => 'Editar Destino'), edit_destination_path(@destination) %> 
+					<%= link_to image_tag('delete_button.gif', :alt => 'Eliminar Destino'), destination_path(@destination), :confirm => "¿Estás Seguro?", :method => :delete %>
+				</p>
+				
+			</div><!--end theformshow-->
+		 
+		</div><!--end text-->
+	
+	</div><!--end information-->
+	
+</div><!--end content-->	

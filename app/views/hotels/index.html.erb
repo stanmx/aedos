@@ -1,0 +1,40 @@
+<%= render 'shared/hotel_tabs' %>
+
+<div id="content">	
+	
+	<%= render 'search' %>
+
+	<div id="hotel-results">
+	
+		<div class="thetable">
+			<table cellpadding="0" cellspacing="0" border="0">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Nombre</th>
+						<th>Categoria</th>
+						<th>Orden</th>
+						<th colspan="2">Opciones</th>
+					</tr>
+				</thead>
+				<tbody>
+				<% @hotels.each do |hotel| %>
+					<tr class="<%= cycle("first", "second") %>">
+						<td><%= hotel.id  %></td>
+						<td><%= link_to hotel.name, hotel_path(hotel) %></td>
+						<td><%= hotel.category  %></td>
+						<td><%= hotel.order %></td>
+						<td><%= link_to image_tag('edit-icon.png', :alt => 'Editar'), edit_hotel_path(hotel) %></td>
+						<td><%= link_to image_tag('delete-icon.png', :alt => 'Eliminar'), hotel_path(hotel), :confirm => "¿Estás seguro?", :method => :delete %></td>
+					</tr>
+				<% end %>
+				</tbody>
+			</table>
+		</div><!--end thetable-->
+	
+		<div class="thetablepagination">
+			<%= will_paginate(@hotels) %> 		
+		</div><!--end thetablepagination-->
+	
+	</div><!--end hotel-resuelts-->
+</div><!--end content-->

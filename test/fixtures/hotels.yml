@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  city_id: 1
+  status: false
+  name: MyString
+  description: MyText
+  direction: MyString
+  location: MyString
+  gmap: MyString
+  services: MyText
+  category: 1
+  order: 1
+
+two:
+  city_id: 1
+  status: false
+  name: MyString
+  description: MyText
+  direction: MyString
+  location: MyString
+  gmap: MyString
+  services: MyText
+  category: 1
+  order: 1

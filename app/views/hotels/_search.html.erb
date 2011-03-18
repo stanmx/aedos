@@ -1,0 +1,14 @@
+<div id="hotel-header">
+	
+	<div class="quicksearch">
+		<% form_tag hotels_path, :method => 'get' do %>
+			<%= text_field_tag :search, params[:search], :class => :search_text %>
+			<%= submit_tag nil, :name => nil, :value => '', :class => :search_submit %>
+		<% end %>	
+	</div><!--end quicksearch-->	
+	
+	<div class="thebutton">
+		<p><%= link_to image_tag('agregar-nuevo-hotel-button.gif', :alt => 'Agregar nuevo Hotel'), new_hotel_path %></p>
+	</div><!--end thebutton-->			
+	
+</div><!--end hotel-header-->

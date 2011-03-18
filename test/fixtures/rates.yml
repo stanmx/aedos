@@ -1,0 +1,39 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  room_id: 1
+  simple_rate: 9.99
+  double_rate: 9.99
+  triple_rate: 9.99
+  quad_rate: 9.99
+  quintuple_rate: 9.99
+  sextuple_rate: 9.99
+  infant_rate: 9.99
+  minor_rate: 9.99
+  junior_rate: 9.99
+  minor_breakfast: 9.99
+  adult_breakfast: 9.99
+  aeto_comission: 9.99
+  tax: 9.99
+  ish: 9.99
+  start_date: 2011-01-28 13:59:04
+  end_date: 2011-01-28 13:59:04
+
+two:
+  room_id: 1
+  simple_rate: 9.99
+  double_rate: 9.99
+  triple_rate: 9.99
+  quad_rate: 9.99
+  quintuple_rate: 9.99
+  sextuple_rate: 9.99
+  infant_rate: 9.99
+  minor_rate: 9.99
+  junior_rate: 9.99
+  minor_breakfast: 9.99
+  adult_breakfast: 9.99
+  aeto_comission: 9.99
+  tax: 9.99
+  ish: 9.99
+  start_date: 2011-01-28 13:59:04
+  end_date: 2011-01-28 13:59:04

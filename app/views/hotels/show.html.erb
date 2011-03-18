@@ -1,0 +1,48 @@
+<%= render 'shared/hotel_tabs' %>
+
+<div id="content">	
+	
+	<%= render 'search' %>
+
+	<div id="information">
+	
+		<%= render 'bar' %>
+	
+		<div id="text">
+		
+			<div id="theformshow">
+				<h2>Información General de <%= @hotel.name %></h2>
+				<p><strong>Estado:</strong> <%= @hotel.city.state.name %></p>
+				<p><strong>Ciudad:</strong> <%= @hotel.city.name %></p>
+				<p><strong>Activo:</strong> <%= @hotel.status %></p>
+				<p><strong>Nombre:</strong> <%= @hotel.name %></p>
+				<p><strong>Descripción:</strong> <%= @hotel.description %></p>
+				<p><strong>Dirección:</strong> <%= @hotel.direction %></p>
+				<p><strong>Latitud / Longitud:</strong> <%= @hotel.gmap %></p>
+				<p><strong>Ubicación:</strong> <%= @hotel.location %></p>
+				<p><strong>Servicios:</strong> <%= @hotel.services %></p>
+				<p><strong>Categoría:</strong> <%= @hotel.category %></p>
+				<p><strong>Orden:</strong> <%= @hotel.order %></p>
+				<p><strong>Rango de edad de infante:</strong> <%= @hotel.infant_start_age %> a <%= @hotel.infant_end_age %></p>
+				<p><strong>Rango de edad de menor:</strong> <%= @hotel.minor_start_age %> a <%= @hotel.minor_end_age %></p>
+				<p><strong>Rango de edad de junior:</strong> <%= @hotel.junior_start_age %> a <%= @hotel.junior_end_age %></p>
+				<p class="hotel_images">
+				<% @hotel.hotel_images.each do |photo| %>
+			  		<% if photo.id == @hotel.hotel_images.first.id %>
+			    		<% image = image_tag(photo.photo.url(:small), :alt => @hotel.name, :border => 0) %>
+			  		<% else %>
+			    		<% image = image_tag(photo.photo.url(:small), :alt => @hotel.name, :border => 0, :class => 'small') %>
+			  		<% end %>
+			  		<%= link_to image, photo.photo.url(:big), :class => 'zoom' %>
+				<% end %>
+				</p>
+				<p>
+					<%= link_to image_tag('back_button.gif', :alt => 'Regresar a Hoteles'), hotels_path %> 
+					<%= link_to image_tag('edit_button.gif', :alt => 'Editar Hotel'), edit_hotel_path(@hotel) %> 
+					<%= link_to image_tag('delete_button.gif', :alt => 'Eliminar Hotel'),hotel_path(@hotel), :confirm => "¿Estás Seguro?", :method => :delete %>
+				</p>
+				
+			</div><!--end theformshow-->
+		</div><!--end text-->
+	</div><!--end information-->
+</div><!--end information-->

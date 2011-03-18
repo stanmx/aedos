@@ -1,0 +1,57 @@
+<%= render 'shared/hotel_tabs' %>
+
+<div id="content">	
+	
+	<%= render 'hotels/search' %>
+
+	<div id="information">
+	
+		<%= render 'hotels/bar' %>
+	
+		<div id="text">
+		
+			<div id="theformshow">
+				<h2>Tipo de Habitación en <%= @hotel.name %></h2>
+				<p><strong>Nombre:</strong> <%= @room.name %></p>
+				<p><strong>Descripción:</strong> <%= h(@room.description).gsub(/\n/, '<br />') %></p>
+				<p><strong>Habitaciones disponibles:</strong> <%= @room.rooms_number %></p>
+				<p><strong>Capacidad maxima de habitación:</strong> <%= @room.capacity %></p>
+				<p><strong>Capacidad maxima de adultos:</strong> <%= @room.adult_max_capacity %></p>
+				<p><strong>Capacidad maxima de menores:</strong> <%= @room.child_max_capacity %></p>
+				<p><strong>Capacidad maxima de juniors:</strong> <%= @room.junior_max_capacity %></p>
+				<ul>  
+				<% for rate in @room.rates %> 
+					<h3>Tarifa y Disponibilidad</h3>
+				 	<li><strong>Tarifa sencilla:</strong> <%= h rate.simple_rate %></li>
+				  	<li><strong>Tarifa doble:</strong> <%= h rate.double_rate %></li> 
+				  	<li><strong>Tarifa triple:</strong> <%= h rate.triple_rate %></li>
+				  	<li><strong>Tarifa quadruple:</strong> <%= h rate.quad_rate %></li>
+				  	<li><strong>Tarifa quintuple:</strong> <%= h rate.quintuple_rate %></li>
+				  	<li><strong>Tarifa sextuple:</strong> <%= h rate.sextuple_rate %></li>
+				  	<li><strong>Tarifa de infante:</strong> <%= h rate.infant_rate %></li>
+				  	<li><strong>Tarifa de menor:</strong> <%= h rate.minor_rate %></li>
+				  	<li><strong>Tarifa de junior:</strong> <%= h rate.junior_rate %></li>
+				  	<li><strong>Desayuno de menor:</strong> <%= h rate.minor_breakfast %></li>
+				  	<li><strong>Desayuno de adulto:</strong> <%= h rate.adult_breakfast %></li>
+				  	<li><strong>Comisión de AETO:</strong> <%= h rate.aeto_comission %></li>
+				  	<li><strong>IVA:</strong> <%= h rate.tax %></li>
+				  	<li><strong>ISH:</strong> <%= h rate.ish %></li>
+				  	<li><strong>Inicio de disponibilidad:</strong> <%= h rate.start_date %></li>
+				  	<li><strong>Termino de disponibilidad:</strong> <%= h rate.end_date %></li>
+					<li><strong>Fecha de caducidad de tarifas:</strong> <%= h rate.rates_expired %></li>
+					<li><strong>Minimo de dias:</strong> <%= h rate.min_days %></li>
+				<% end %>  
+				</ul>
+				<p>
+					<%= link_to image_tag('back_button.gif', :alt => 'Regresar a Tipos de Habitación'), hotel_rooms_path %> 
+					<%= link_to image_tag('edit_button.gif', :alt => 'Editar Tipo de Habitación'), edit_hotel_room_path(@hotel, @room) %> 
+					<%= link_to image_tag('delete_button.gif', :alt => 'Eliminar Tipo de Habitación'),hotel_room_path(@hotel, @room), :confirm => "¿Estás Seguro?", :method => :delete %>
+				</p>
+				
+			</div><!--end theformshow-->
+		 
+		</div><!--end text-->
+	
+	</div><!--end information-->
+
+</div><!--end content-->

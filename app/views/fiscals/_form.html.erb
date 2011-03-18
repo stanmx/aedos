@@ -1,0 +1,42 @@
+<%= form_for [:hotel, @fiscal] do |f| %>
+	<%= render "shared/error_messages", :target => @fiscal %> 
+	<p>
+		<%= f.label 'Razón Social' %>
+		<%= f.text_field :business_name, :class => :input400 %>
+	</p>
+	<p>
+		<%= f.label 'Razón Comercial' %>
+		<%= f.text_field :commercial_name, :class => :input400 %>
+	</p>
+	<p>
+		<%= f.label 'RFC' %>
+		<%= f.text_field :rfc, :class => :input400 %>
+	</p>
+	<p>
+		<%= f.label 'Dirección' %>
+		<%= f.text_field :direction, :class => :input500 %>
+	</p>
+	<p>
+		<%= f.label 'Nombre de Contacto' %>
+		<%= f.text_field :contact_name, :class => :input400 %>
+	</p>
+	<p>
+		<%= f.label 'Puesto de Contacto' %>
+		<%= f.text_field :job_position, :class => :input300 %>
+	</p>
+	<p>
+		<%= f.label 'Teléfono' %>
+		<%= f.text_field :phone, :class => :input300 %>
+	</p>
+	<p>
+		<%= f.label 'Email' %>
+		<%= f.text_field :email, :class => :input300 %>
+	</p>
+	<p>
+		<label>Información Bancaria</label>
+		<%= f.text_area :bank_info, :class => :mceEditor %>
+	</p>
+	<p>
+		<%= image_submit_tag 'save_button.gif', :class => :submitimg %>
+	</p>
+<% end %>
