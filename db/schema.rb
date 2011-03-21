@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110317204940) do
+ActiveRecord::Schema.define(:version => 20110321020421) do
 
   create_table "cities", :force => true do |t|
     t.integer  "state_id"
@@ -87,20 +87,20 @@ ActiveRecord::Schema.define(:version => 20110317204940) do
 
   create_table "rates", :force => true do |t|
     t.integer  "room_id"
-    t.decimal  "simple_rate",     :precision => 12, :scale => 4
-    t.decimal  "double_rate",     :precision => 12, :scale => 4
-    t.decimal  "triple_rate",     :precision => 12, :scale => 4
-    t.decimal  "quad_rate",       :precision => 12, :scale => 4
-    t.decimal  "quintuple_rate",  :precision => 12, :scale => 4
-    t.decimal  "sextuple_rate",   :precision => 12, :scale => 4
-    t.decimal  "infant_rate",     :precision => 12, :scale => 4
-    t.decimal  "minor_rate",      :precision => 12, :scale => 4
-    t.decimal  "junior_rate",     :precision => 12, :scale => 4
-    t.decimal  "minor_breakfast", :precision => 12, :scale => 4
-    t.decimal  "adult_breakfast", :precision => 12, :scale => 4
-    t.decimal  "aeto_comission",  :precision => 7,  :scale => 4
-    t.decimal  "tax",             :precision => 7,  :scale => 4
-    t.decimal  "ish",             :precision => 7,  :scale => 4
+    t.decimal  "simple_rate"
+    t.decimal  "double_rate"
+    t.decimal  "triple_rate"
+    t.decimal  "quad_rate"
+    t.decimal  "quintuple_rate"
+    t.decimal  "sextuple_rate"
+    t.decimal  "infant_rate"
+    t.decimal  "minor_rate"
+    t.decimal  "junior_rate"
+    t.decimal  "minor_breakfast"
+    t.decimal  "adult_breakfast"
+    t.decimal  "aeto_comission"
+    t.decimal  "tax"
+    t.decimal  "ish"
     t.datetime "start_date"
     t.datetime "end_date"
     t.datetime "created_at"
@@ -112,10 +112,19 @@ ActiveRecord::Schema.define(:version => 20110317204940) do
   create_table "room_availabilities", :force => true do |t|
     t.integer  "room_id"
     t.date     "date"
-    t.decimal  "package_price",    :precision => 10, :scale => 0
-    t.decimal  "one_person_price", :precision => 10, :scale => 0
+    t.decimal  "package_price"
+    t.decimal  "one_person_price"
     t.integer  "rooms_number"
     t.boolean  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "room_searches", :force => true do |t|
+    t.integer  "adults_number"
+    t.integer  "minors_number"
+    t.integer  "minors_ages"
+    t.integer  "search_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -136,14 +145,9 @@ ActiveRecord::Schema.define(:version => 20110317204940) do
   create_table "searches", :force => true do |t|
     t.datetime "start_date"
     t.datetime "end_date"
-    t.integer  "rooms_number"
-    t.integer  "adults_number"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "city"
-    t.integer  "minors_number"
-    t.integer  "minors_ages"
-    t.integer  "persons_number"
   end
 
   create_table "states", :force => true do |t|

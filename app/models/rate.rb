@@ -1,12 +1,12 @@
 class Rate < ActiveRecord::Base
   belongs_to :room
   
-  validate :city, :presence => true
+#  validate :city, :presence => true
   validate :start_date, :presence => true
   validate :end_date, :presence => true
   validate :date_range
-  validate :persons_number, :presence => true
-  validate :adults_number, :presence => true
+#  validate :persons_number, :presence => true
+#  validate :adults_number, :presence => true
 
 
   def date_range
@@ -19,4 +19,6 @@ class Rate < ActiveRecord::Base
   #  result.where()
     
   #end
+  
+  scope :search, lambda{|city, start_date, end_date, adults, children| joins(:room => [{:hotel => :city}]).where(:cities => {:name => city}).where('start_date <= ?', start_date).where('end_date >= ?', end_date).where('rooms.adult_max_capacity >= ?', adults).where('rooms.child_max_capacity >= ?', children).includes(:room) } 
 end

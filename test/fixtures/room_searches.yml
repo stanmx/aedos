@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  adults_max: 1
+  children_max: 1
+  children_age: 1
+
+two:
+  adults_max: 1
+  children_max: 1
+  children_age: 1

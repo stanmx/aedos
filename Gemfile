@@ -14,6 +14,9 @@ gem 'tiny_mce', :git => 'git://github.com/kete/tiny_mce.git'
 gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
 
 gem 'mysql2'
+gem 'sqlite3-ruby', :require => 'sqlite3'
+
+gem 'jquery-rails', '>= 0.2.6'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -27,7 +30,6 @@ gem 'mysql2'
 # Bundle the extra gems:
 # gem 'bj'
 # gem 'nokogiri'
-# gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 
 # Bundle gems for the local environment. Make sure to

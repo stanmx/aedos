@@ -12,27 +12,7 @@
 		<div id="results">
 		<% if @rates %>
 			<h2>Resultados de busqueda</h2>
-  			<% @rates.each do | rate| %>
-    			<div class="roomresult">
-					<h3><%= rate.room.hotel.name %></h3>
-					<h5><%= rate.room.name %> / <%= rate.room.hotel.city.name %></h5>
-					<%=raw rate.room.hotel.description %>
-					<%=raw rate.room.description %>
-					
-					<p class="hotel_images">
-					<% rate.room.hotel.hotel_images.each do |photo| %>
-				  		<% if photo.id == rate.room.hotel.hotel_images.first.id %>
-				    		<% image = image_tag(photo.photo.url(:small), :alt => rate.room.hotel.name, :border => 0) %>
-				  		<% else %>
-				    		<% image = image_tag(photo.photo.url(:small), :alt => rate.room.hotel.name, :border => 0, :class => 'small') %>
-				  		<% end %>
-				  		<%= link_to image, photo.photo.url(:big), :class => 'zoom' %>
-					<% end %>
-					</p>
-					
-      			
-				</div>
-  			<% end %>
+            <%= render :partial => 'searches/rate', :collection => @rates, :locals => {:search  => @search } %>
 		<% end %>
 		</div><!--end searchresults-->
 

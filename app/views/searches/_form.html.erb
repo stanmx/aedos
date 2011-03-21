@@ -23,26 +23,37 @@
     	<%= f.date_select :end_date %>
   	</p>
   	<p>
-    	<%= f.label 'Numero de Habitaciones' %>
-    	<%= f.text_field :rooms_number, :class => :input100 %>
+    <%= link_to 'Agregar habitacion', '#', :id => 'add_room' %>
   	</p>
-	<p>
-    	<%= f.label 'Numero de Personas' %>
-    	<%= f.text_field :persons_number, :class => :input100 %>
-  	</p>
-  	<p>
-    	<%= f.label 'Numero de Adultos' %>
-    	<%= f.text_field :adults_number, :class => :input100 %>
-  	</p>
-	<p>
-    	<%= f.label 'Numero de Menores' %>
-    	<%= f.text_field :minors_number, :class => :input100 %>
-  	</p>
-	<p>
-    	<%= f.label 'Edad de Menor' %>
-    	<%= f.text_field :minors_ages, :class => :input100 %>
-  	</p>
+    <% @rooms = 0 %>
+    <%= f.fields_for :room_searches do |r| %>
+      <div class="room <%= @rooms == 0 ? 'first' : '' %>">
+        <div style="float:left">
+      	<%= r.label 'Numero de Adultos' %>
+      	<%= r.text_field :adults_number, :class => :input100 %>
+        </div>
+        <div style="float:left">
+      	<%= r.label 'Numero de Menores' %>
+      	<%= r.text_field :minors_number, :class => :input100 %>
+        </div>
+        <div style="float:left">
+      	<%= r.label 'Edad de Menor' %>
+      	<%= r.text_field :minors_ages, :class => :input100 %>
+        </div>
+        <% if @rooms > 0 %>
+          <div style="float:left">
+            <%= link_to 'Remover habitacion', '#', :class => 'remove_room' %>
+          </div>
+      <% end %>
+        <div style="clear:left;" ></div>
+  	  </div>
+      <% @rooms = @rooms + 1 %>
+    <% end %>
   	<p>
     	<%= f.submit 'Buscar', :class => :submit %>
   	</p>
 <% end %>
+
+<script type="text/javascript">
+  Search.setup();
+</script>
