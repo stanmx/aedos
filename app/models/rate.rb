@@ -21,4 +21,23 @@ class Rate < ActiveRecord::Base
   #end
   
   scope :search, lambda{|city, start_date, end_date, adults, children| joins(:room => [{:hotel => :city}]).where(:cities => {:name => city}).where('start_date <= ?', start_date).where('end_date >= ?', end_date).where('rooms.adult_max_capacity >= ?', adults).where('rooms.child_max_capacity >= ?', children).includes(:room) } 
+
+
+  def total(search)
+    adults = 0
+    search.room_searches.each{|x| adults += x.adults_number}
+
+    days = (search.start_date.to_date..search.end_date.to_date).count
+
+    rate = case adults
+      when 1 then simple_rate
+      when 2 then double_rate
+      when 3 then triple_rate
+      when 4 then quad_rate
+      when 5 then quintuple_rate
+      else sextuple_rate
+    end
+
+    rate * days
+  end
 end
