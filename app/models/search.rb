@@ -8,6 +8,10 @@ class Search < ActiveRecord::Base
 
   def date_range
     errors.add(:start_date, 'can not be greater than end date') if start_date > end_date
+
+    errors.add(:start_date, 'can not be the same as end date') if start_date.to_date == end_date.to_date
+
+    errors.add(:start_date, 'can not be in the past') if start_date.to_date <= Date.today
   end
 
   def adults_max

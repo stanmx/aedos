@@ -37,7 +37,7 @@ class Rate < ActiveRecord::Base
       end
     end
 
-    days = (search.start_date.to_date..search.end_date.to_date).count
+    days = (search.start_date.to_date..search.end_date.to_date).count - 1
 
     total_rate = (rate * days)
     total_rate += total_rate * aeto_comission

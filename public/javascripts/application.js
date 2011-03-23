@@ -27,7 +27,7 @@ var Search = {
         new_room.append('<div style="float:left"><a class="remove_room" href="#">Remover habitacion</a></div>');
         new_room.removeClass('first');
       }
-      new_room.find('input').val('0');
+      new_room.find('select option:first-child').attr('selected', 'selected');
       new_room.insertAfter(last_room);
     }
 
@@ -42,6 +42,14 @@ var Search = {
   recalculate_form: function() {
     $('.room').each(function(index, value) {
       $(value).find('input').each(function(index_input, value_input) {
+        var id = $(value_input).attr('id').replace(/_\d_/, '_' + index + '_');
+        $(value_input).attr('id', id);
+         
+        var name = $(value_input).attr('name').replace(/\[\d\]/, '[' + index + ']'); 
+        $(value_input).attr('name', name);
+      });
+
+      $(value).find('select').each(function(index_input, value_input) {
         var id = $(value_input).attr('id').replace(/_\d_/, '_' + index + '_');
         $(value_input).attr('id', id);
          

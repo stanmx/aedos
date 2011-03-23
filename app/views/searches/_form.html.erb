@@ -30,11 +30,11 @@
       <div class="room <%= @rooms == 0 ? 'first' : '' %>">
         <div style="float:left">
       	<%= r.label 'Numero de Adultos' %>
-      	<%= r.text_field :adults_number, :class => :input100 %>
+      	<%= r.select :adults_number, (0..4), :class => :input100 %>
         </div>
         <div style="float:left">
       	<%= r.label 'Numero de Menores' %>
-      	<%= r.text_field :minors_number, :class => :input100 %>
+      	<%= r.select :minors_number, (0..2), :class => :input100 %>
         </div>
         <div style="float:left">
       	<%= r.label 'Edad de Menor' %>
