@@ -24,20 +24,26 @@ class Rate < ActiveRecord::Base
 
 
   def total(search)
-    adults = 0
-    search.room_searches.each{|x| adults += x.adults_number}
+    rate = 0
+
+    search.room_searches.each do |s| 
+      rate += case s.adults_number
+        when 1 then simple_rate
+        when 2 then double_rate
+        when 3 then triple_rate
+        when 4 then quad_rate
+        when 5 then quintuple_rate
+        else sextuple_rate
+      end
+    end
 
     days = (search.start_date.to_date..search.end_date.to_date).count
 
-    rate = case adults
-      when 1 then simple_rate
-      when 2 then double_rate
-      when 3 then triple_rate
-      when 4 then quad_rate
-      when 5 then quintuple_rate
-      else sextuple_rate
-    end
+    total_rate = (rate * days)
+    total_rate += total_rate * aeto_comission
+    total_rate += total_rate * tax
+    total_rate += total_rate * ish
 
-    rate * days
+    total_rate
   end
 end

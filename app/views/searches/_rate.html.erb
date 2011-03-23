@@ -3,7 +3,9 @@
 	<h5><%= rate.room.name %> / <%= rate.room.hotel.city.name %></h5>
 	<%=raw rate.room.hotel.description %>
 	<%=raw rate.room.description %>
-    <p>Total: <%=rate.total(@search)%></p>
+    <p>Total: <%= number_to_currency rate.total(@search), :precision => 2 %></p>
+    <p>Dias: <%= calculate_days(@search) %></p>
+    <p>Habitaciones: <%= @search.room_searches.length %></p>
 	
 	<p class="hotel_images">
 	<% rate.room.hotel.hotel_images.each do |photo| %>

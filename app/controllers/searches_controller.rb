@@ -3,7 +3,7 @@ class SearchesController < ApplicationController
 
   def index
     @search = Search.new 
-    @search.room_searches << RoomSearch.new
+    @search.room_searches << RoomSearch.new(:adults_number => 0, :minors_number => 0)
   end
 
   def create

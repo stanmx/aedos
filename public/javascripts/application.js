@@ -27,7 +27,7 @@ var Search = {
         new_room.append('<div style="float:left"><a class="remove_room" href="#">Remover habitacion</a></div>');
         new_room.removeClass('first');
       }
-      new_room.find('input').val('');
+      new_room.find('input').val('0');
       new_room.insertAfter(last_room);
     }
 
