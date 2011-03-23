@@ -11,7 +11,7 @@ class Search < ActiveRecord::Base
 
     errors.add(:start_date, 'can not be the same as end date') if start_date.to_date == end_date.to_date
 
-    errors.add(:start_date, 'can not be in the past') if start_date.to_date <= Date.today
+    errors.add(:start_date, 'can not be in the past') if start_date.to_date < Date.today
   end
 
   def adults_max
