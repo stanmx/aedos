@@ -17,6 +17,7 @@ var Search = {
   setup: function() {
     $('#add_room').click(Search.add_room);
     $('.remove_room').live('click', Search.remove_room);
+    $('.minors').live('change', Search.minors_change);
   },
   add_room: function() {
     var last_room = $('.room').last();
@@ -29,6 +30,7 @@ var Search = {
       }
       new_room.find('select option:first-child').attr('selected', 'selected');
       new_room.insertAfter(last_room);
+      new_room.find('.collapsable').hide();
     }
 
     Search.recalculate_form();
@@ -38,6 +40,20 @@ var Search = {
     $(this).closest('.room').remove();
     Search.recalculate_form();
     return false;
+  },
+  minors_change: function() {
+    var room = $(this).closest('.room');
+    if(room) {
+      var value = $(this).val();
+      if(value == 0) {
+        $(room).children('.collapsable').hide();
+      } else if(value == 1) {
+        $(room).children('.collapsable:first').show();
+        $(room).children('.collapsable:last').hide();
+      } else if(value == 2) {
+        $(room).children('.collapsable').show();
+      }
+    }
   },
   recalculate_form: function() {
     $('.room').each(function(index, value) {

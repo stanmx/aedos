@@ -34,11 +34,15 @@
         </div>
         <div style="float:left">
       	<%= r.label 'Numero de Menores' %>
-      	<%= r.select :minors_number, (0..2), :class => :input100 %>
+        <%= r.select :minors_number, (0..2), {}, :class => 'minors' %>
         </div>
-        <div style="float:left">
+        <div style="float:left;display:none;" class="collapsable">
       	<%= r.label 'Edad de Menor' %>
-      	<%= r.text_field :minors_ages, :class => :input100 %>
+        <%= r.select :minor1_age, (0..17) %>
+        </div>
+        <div style="float:left; display:none;" class="collapsable">
+      	<%= r.label 'Edad de Menor' %>
+        <%= r.select :minor2_age, (0..17) %>
         </div>
         <% if @rooms > 0 %>
           <div style="float:left">
