@@ -44,7 +44,9 @@ class Rate < ActiveRecord::Base
     days = (search.start_date.to_date..search.end_date.to_date).count - 1
 
     total_rate = calculate_rate(rate, days)
-    minors_rate = calculate_minors(minors_ages, days) if minors_ages.size > 0
+    puts minors_ages.size
+    puts days
+    minors_rate = calculate_minors(minors_ages, days)
 
     return 0 if minors_rate == -1
     total_rate + minors_rate
@@ -53,6 +55,7 @@ class Rate < ActiveRecord::Base
   private
   def calculate_minors(minors_ages, days)
     rate = 0
+
     minors_ages.each do |age|
       current_rate = -1
 
