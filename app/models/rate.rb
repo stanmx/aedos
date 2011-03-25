@@ -26,6 +26,7 @@ class Rate < ActiveRecord::Base
   def total(search)
     rate = 0
 
+    minors_ages = []
     search.room_searches.each do |s| 
       rate += case s.adults_number
         when 1 then simple_rate
@@ -35,10 +36,42 @@ class Rate < ActiveRecord::Base
         when 5 then quintuple_rate
         else sextuple_rate
       end
+
+      minors_ages << s.minor1_age if s.minors_number >= 1 
+      minors_ages << s.minor2_age if s.minors_number == 2 
     end
 
     days = (search.start_date.to_date..search.end_date.to_date).count - 1
 
+    total_rate = calculate_rate(rate, days)
+    minors_rate = calculate_minors(minors_ages, days) if minors_ages.size > 0
+
+    return 0 if minors_rate == -1
+    total_rate + minors_rate
+  end
+
+  private
+  def calculate_minors(minors_ages, days)
+    rate = 0
+    minors_ages.each do |age|
+      current_rate = -1
+
+      if age >= room.hotel.infant_start_age and age <= room.hotel.infant_end_age
+        current_rate = infant_rate if !infant_rate.nil?
+      elsif age >= room.hotel.minor_start_age and age <= room.hotel.minor_end_age
+        current_rate = minor_rate if !minor_rate.nil?
+      elsif age >= room.hotel.junior_start_age and age <= room.hotel.junior_end_age
+        current_rate = junior_rate if !junior_rate.nil?
+      end
+
+      return current_rate if current_rate == -1
+      rate += current_rate
+    end
+
+    rate * days
+  end
+
+  def calculate_rate(rate, days)
     total_rate = (rate * days)
     total_rate += total_rate * aeto_comission
     total_rate += total_rate * tax

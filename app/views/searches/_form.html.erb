@@ -36,11 +36,11 @@
       	<%= r.label 'Numero de Menores' %>
         <%= r.select :minors_number, (0..2), {}, :class => 'minors' %>
         </div>
-        <div style="float:left;display:none;" class="collapsable">
+        <div style="float:left;display:<%=r.object.minors_number > 0 ? 'block;':'none;'%>" class="collapsable">
       	<%= r.label 'Edad de Menor' %>
         <%= r.select :minor1_age, (0..17) %>
         </div>
-        <div style="float:left; display:none;" class="collapsable">
+        <div style="float:left; display:<%=r.object.minors_number > 1 ? 'block;':'none;'%>" class="collapsable">
       	<%= r.label 'Edad de Menor' %>
         <%= r.select :minor2_age, (0..17) %>
         </div>
