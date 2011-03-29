@@ -36,7 +36,7 @@ var Search = {
     Search.recalculate_form();
     return false;
   },
-  remove_room: function() {
+  remove_room: function(e) {
     $(this).closest('.room').remove();
     Search.recalculate_form();
     return false;

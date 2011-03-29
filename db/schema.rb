@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110323190959) do
+ActiveRecord::Schema.define(:version => 20110329155749) do
 
   create_table "cities", :force => true do |t|
     t.integer  "state_id"
@@ -107,6 +107,30 @@ ActiveRecord::Schema.define(:version => 20110323190959) do
     t.datetime "updated_at"
     t.datetime "rates_expired"
     t.integer  "min_days"
+  end
+
+  create_table "reservations", :force => true do |t|
+    t.string   "name"
+    t.string   "last_name"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "cell_phone"
+    t.integer  "card_type"
+    t.integer  "card_number"
+    t.datetime "expiration_date"
+    t.integer  "security_code"
+    t.string   "card_name"
+    t.string   "last_name1"
+    t.string   "last_name2"
+    t.string   "email"
+    t.boolean  "invoice"
+    t.string   "company_name"
+    t.string   "company_address"
+    t.string   "rfc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "rate_id"
+    t.integer  "search_id"
   end
 
   create_table "room_availabilities", :force => true do |t|

@@ -1,4 +1,5 @@
-<%= form_for(@search) do |f| %>
+<%= form_for(@search, :url => searches_path, :html => { :method => :post }) do |f| %>
+  <%= hidden_field_tag :search_id, @search.id %>
   <% if @search.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@search.errors.count, "error") %> prohibited this search from being saved:</h2>
@@ -28,6 +29,7 @@
     <% @rooms = 0 %>
     <%= f.fields_for :room_searches do |r| %>
       <div class="room <%= @rooms == 0 ? 'first' : '' %>">
+        <%= r.hidden_field :id %>
         <div style="float:left">
       	<%= r.label 'Numero de Adultos' %>
       	<%= r.select :adults_number, (0..4), :class => :input100 %>

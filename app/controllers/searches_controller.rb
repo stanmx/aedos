@@ -7,10 +7,16 @@ class SearchesController < ApplicationController
   end
 
   def create
+    if Search.exists?(params[:search_id])
+      Search.delete params[:search_id]
+    end
+
     @search = Search.new(params[:search])
 
     if @search.valid?
       @rates = Rate.search(@search.city, @search.start_date, @search.end_date, @search.adults_max, @search.children_max)
+
+      @search.save
     end
 
     render 'index'

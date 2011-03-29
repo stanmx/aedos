@@ -1,0 +1,87 @@
+<div>
+  <p>
+  Usted ha elegido reservar <%= @search.nights %> noches, con <%= @search.total_rooms %> habitaciones para <%= @search.total_adults %> adultos y <%= @search.total_children %> menores
+  <p>
+  <p>
+  La reservacion en el hotel <%= @rate.room.hotel.name %> con un costo de <%= @rate.total(@search) %> esta casi lista, solo falta completar la siguiente informacion:
+  </p>
+</div>
+<div id="theform">
+  <%= form_for @reservation do |f| %>
+    <%= render "shared/error_messages", :target => @reservation %>
+    <%= hidden_field_tag :rate, @rate.id %>
+    <%= hidden_field_tag :search, @search.id %>
+    <p>
+      <%= f.label 'Nombre' %>
+      <%= f.text_field :name, :class => :input400 %>
+    </p>
+    <p>
+      <%= f.label 'Apellidos' %>
+      <%= f.text_field :last_name, :class => :input400 %>
+    </p>
+    <p>
+      <%= f.label 'Dirección' %>
+      <%= f.text_field :address, :class => :input400 %>
+    </p>
+    <p>
+      <%= f.label 'Teléfono' %>
+      <%= f.text_field :phone, :class => :input400 %>
+    </p>
+    <p>
+      <%= f.label 'Teléfono celular' %>
+      <%= f.text_field :cell_phone, :class => :input400 %>
+    </p>
+    <p>
+      <%= f.label 'Tipo de tarjeta de crédito' %>
+      <%= f.select :card_type, credit_card_types, :prompt => 'Seleccione una'%>
+    </p>
+    <p>
+      <%= f.label 'Número de tarjeta de crédito' %>
+      <%= f.text_field :card_number, :class => :input400 %>
+    </p>
+    <p>
+      <%= f.label 'Fecha de expiración' %>
+      <%= f.date_select :expiration_date, {:discard_day => true, :start_year => Time.now.year} %>
+    </p>
+    <p>
+      <%= f.label 'Código de seguridad' %>
+      <%= f.text_field :security_code, :class => :input400 %>
+    </p>
+    <p>
+      <%= f.label 'Nombre del titular' %>
+      <%= f.text_field :card_name, :class => :input400 %>
+    </p>
+    <p>
+      <%= f.label 'Apellido paterno del titular' %>
+      <%= f.text_field :last_name1, :class => :input400 %>
+    </p>
+    <p>
+      <%= f.label 'Apellido materno del titular' %>
+      <%= f.text_field :last_name2, :class => :input400 %>
+    </p>
+    <p>
+      <%= f.label 'Correo electrónico' %>
+      <%= f.text_field :email, :class => :input400 %>
+    </p>
+    <p>
+      <%= f.label '¿Requiere factura?' %>
+      <%= f.check_box :invoice %>
+    </p>
+    <p>
+      <%= f.label 'Razon Social' %>
+      <%= f.text_field :company_name, :class => :input400 %>
+    </p>
+    <p>
+      <%= f.label 'Dirección' %>
+      <%= f.text_field :company_address, :class => :input400 %>
+    </p>
+    <p>
+      <%= f.label 'R.F.C.' %>
+      <%= f.text_field :rfc, :class => :input400 %>
+    </p>
+    <p>
+      <%= f.submit 'Reservar' %> 
+    </p>
+  <% end %>
+</div>
+

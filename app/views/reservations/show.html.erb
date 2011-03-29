@@ -1,0 +1,9 @@
+<h1>Reservacion</h1>
+<div>
+  <p>
+  Usted ha elegido reservar <%= @reservation.search.nights %> noches, con <%= @reservation.search.total_rooms %> habitaciones para <%= @reservation.search.total_adults %> adultos y <%= @reservation.search.total_children %> menores
+  </p>
+  <p>
+  La reservacion en el hotel <%= @reservation.rate.room.hotel.name %> con un costo de <%= @reservation.rate.total(@reservation.search) %> esta casi lista, solo falta completar la siguiente informacion:
+  </p>
+</div>

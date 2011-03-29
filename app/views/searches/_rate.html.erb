@@ -18,5 +18,11 @@
     		<%= link_to image, photo.photo.url(:big), :class => 'zoom' %>
   	<% end %>
   	</p>
+    <div>
+      <%= form_tag(new_reservation_path) %>
+        <%= hidden_field_tag :rate, rate.id %>
+        <%= hidden_field_tag :search, @search.id %>
+        <%= submit_tag 'Reservar' %>
+    </div>
   </div>
 <% end %>

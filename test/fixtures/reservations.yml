@@ -1,0 +1,43 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  last_name: MyString
+  address: MyString
+  phone: MyString
+  cell_phone: MyString
+  card_type: 1
+  card_number: 1
+  expiration_date: 2011-03-28 11:58:04
+  security_code: 1
+  card_name: MyString
+  last_name1: MyString
+  last_name2: MyString
+  address: MyString
+  phone: MyString
+  email: MyString
+  invoice: false
+  company_name: MyString
+  company_address: MyString
+  rfc: MyString
+
+two:
+  name: MyString
+  last_name: MyString
+  address: MyString
+  phone: MyString
+  cell_phone: MyString
+  card_type: 1
+  card_number: 1
+  expiration_date: 2011-03-28 11:58:04
+  security_code: 1
+  card_name: MyString
+  last_name1: MyString
+  last_name2: MyString
+  address: MyString
+  phone: MyString
+  email: MyString
+  invoice: false
+  company_name: MyString
+  company_address: MyString
+  rfc: MyString

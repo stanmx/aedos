@@ -2,6 +2,12 @@ Aeto::Application.routes.draw do
 
   resources :searches
 
+  resources :reservations, :exclude => :new do
+    member do
+      post 'new'
+    end
+  end
+
   resources :destinations
 
   devise_for :users
