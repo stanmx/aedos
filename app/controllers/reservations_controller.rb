@@ -7,7 +7,6 @@ class ReservationsController < ApplicationController
 
   def show
     @reservation = Reservation.find params[:id]  
-    puts @reservation.search.inspect
   end
 
   def new
@@ -26,6 +25,7 @@ class ReservationsController < ApplicationController
     @reservation.search = @search
 
     if @reservation.save
+      Reservations.confirm @reservation
       redirect_to root_path, :notice => "Su reservacion fue realizada"
     else
       render 'new'
